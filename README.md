@@ -1,1 +1,1 @@
-# CS372-rag-study-assistant-
+# CS372-rag-study-assistant
