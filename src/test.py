@@ -10,7 +10,14 @@ from generate import generate_answer
 # =========================
 
 # Load PDF (change filename if needed)
-text = load_pdf("data/14-GuidedDiffusion.pdf")
+files = [
+    "data/13-Diffusion.pdf",
+    "data/14-GuidedDiffusion.pdf"
+]
+
+text = ""
+for f in files:
+    text += load_pdf(f) + "\n"
 
 # Chunk text
 chunks = chunk_text(text)

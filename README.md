@@ -1,7 +1,7 @@
 # AI Study Assistant with RAG
 
 ## What it Does
-This project implements a retrieval-augmented generation (RAG) system that answers questions based on course lecture slides. The system processes PDF documents, retrieves relevant text using embeddings and vector search, and generates answers using a pretrained language model.
+This project implements a retrieval-augmented generation (RAG) system that answers questions based on course lecture slides. The system processes PDF documents, retrieves relevant text using embeddings and vector search, and generates answers using a pretrained language model. 
 
 ---
 
@@ -24,6 +24,7 @@ python -m pip install -r requirements.txt
 ## Evaluation
 
 We compare system performance with and without retrieval (RAG).
+This aligns with known RAG behavior, where access to relevant document context significantly improves LLM accuracy.
 
 ### Without RAG
 
@@ -79,6 +80,7 @@ PDF → Text Extraction → Chunking → Embeddings → FAISS → Retrieval → 
 - Mathematical notation is partially corrupted when parsed from PDF  
 - Smaller local models may not fully utilize retrieved context  
 - Some answers may still be incomplete or slightly inaccurate  
+- The system currently processes one document at a time but could be extended to multiple documents.
 
 ---
 
