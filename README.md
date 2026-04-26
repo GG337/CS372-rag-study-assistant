@@ -68,8 +68,8 @@ PDF → Text Extraction → Chunking → Embeddings → FAISS → Retrieval → 
 ### Components
 
 - Embeddings: Sentence Transformers  
-- Vector Search: FAISS  
-- Language Model: Phi-2 (or similar pretrained model)  
+- Vector Search: FAISS (Like cosine similarity)
+- Language Model: Phi-2
 - Framework: Python + HuggingFace Transformers  
 
 ---
