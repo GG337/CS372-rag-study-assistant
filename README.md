@@ -46,6 +46,26 @@ Question: What is guided diffusion?
 - With RAG:  
   Correctly explains guided diffusion as conditioning a generative diffusion model on text input and using guidance mechanisms  
 
+### Prompt Engineering Comparison
+
+We evaluated three prompt designs to observe how prompt structure affects answer quality.
+
+| Prompt Style | Description | Example Output |
+|-------------|------------|----------------|
+| Style 1 | Basic instruction | Guided diffusion is a technique used to condition and guide a generative diffusion model given a text input. It involves using cross-attention to condition the model on the text input and guide it towards generating images that are similar to the input text.” |
+| Style 2 | Concise tutor-style prompt | “Guided diffusion is a technique used to condition and guide a generative diffusion model given a text input. It uses text conditioning to steer the model toward generating images that align with the input description.” |
+| Style 3 | Step-by-step reasoning prompt | “1. Guided diffusion is a technique used in machine learning to condition and guide a generative diffusion model given a text input. 2. It uses attention mechanisms to focus on relevant parts of the input text. 3. This allows the model to generate images that align with the given description.” |
+
+### Observations
+
+- **Style 1:** Correct but includes extra irrelevant text (e.g., “Exercise”)  
+- **Style 2:** Most clear and concise answer (best overall)  
+- **Style 3:** More structured but often verbose and includes unnecessary context  
+
+### Conclusion
+
+Prompt design significantly affects answer quality. Concise prompts produce clearer answers, while step-by-step prompts increase structure but may introduce verbosity.
+
 ---
 
 ## Key Findings
@@ -56,6 +76,7 @@ Question: What is guided diffusion?
 - PDF text extraction introduces noise due to:
   - images and diagrams not being captured  
   - mathematical symbols being partially corrupted  
+- The use of FAISS instead of manually computing cosine similarity improves retrieval efficiency and scalability, especially as the number of document chunks increases.
 
 ---
 
@@ -72,6 +93,12 @@ PDF → Text Extraction → Chunking → Embeddings → FAISS → Retrieval → 
 - Language Model: Phi-2
 - Framework: Python + HuggingFace Transformers  
 
+### Retrieval Method
+
+This project uses FAISS (Facebook AI Similarity Search) for efficient similarity search over embeddings. FAISS performs nearest-neighbor search using L2 distance, which serves a similar role to cosine similarity but is optimized for speed and scalability.
+
+This design choice allows the system to efficiently retrieve the most relevant text chunks compared to manually computing cosine similarity over all embeddings.
+
 ---
 
 ## Limitations
@@ -87,7 +114,7 @@ PDF → Text Extraction → Chunking → Embeddings → FAISS → Retrieval → 
 ## Future Improvements
 
 - Use stronger instruction-tuned models  
-- Improve PDF parsing (OCR or multimodal models)  
+- Improve PDF parsing (multimodal models)  
 - Add quantitative evaluation metrics  
 - Support multiple documents for broader retrieval  
 

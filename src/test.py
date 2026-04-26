@@ -9,15 +9,8 @@ from generate import generate_answer
 # SETUP PIPELINE
 # =========================
 
-# Load PDF (change filename if needed)
-files = [
-    "data/13-Diffusion.pdf",
-    "data/14-GuidedDiffusion.pdf"
-]
-
-text = ""
-for f in files:
-    text += load_pdf(f) + "\n"
+# Load ONE PDF
+text = load_pdf("data/14-GuidedDiffusion.pdf")
 
 # Chunk text
 chunks = chunk_text(text)
@@ -67,6 +60,14 @@ for q in questions:
     print("\n--- With RAG ---")
     rag_answer = generate_answer(context, q)
     print(rag_answer)
+
+    # ---- PROMPT COMPARISON (NEW) ----
+    print("\n--- Prompt Comparison ---")
+
+    for style in [1, 2, 3]:
+        print(f"\nPrompt Style {style}:")
+        answer = generate_answer(context, q, style=style)
+        print(answer)
 
 
 print("\nDone.")
