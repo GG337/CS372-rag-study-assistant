@@ -41,10 +41,11 @@ This aligns with known RAG behavior, where access to relevant document context s
 Question: What is guided diffusion?
 
 - Without RAG:  
-  Produces vague or incorrect definitions  
+  "Facilitated diffusion does"
 
 - With RAG:  
-  Correctly explains guided diffusion as conditioning a generative diffusion model on text input and using guidance mechanisms  
+  "Guided diffusion is a technique used to condition and guide a generative diffusion model given a text input. It involves using cross-attention to condition the model on the text input and guide it toward generating images that align with the input description.”
+
 
 ### Prompt Engineering Comparison
 
@@ -52,9 +53,9 @@ We evaluated three prompt designs to observe how prompt structure affects answer
 
 | Prompt Style | Description | Example Output |
 |-------------|------------|----------------|
-| Style 1 | Basic instruction | Guided diffusion is a technique used to condition and guide a generative diffusion model given a text input. It involves using cross-attention to condition the model on the text input and guide it towards generating images that are similar to the input text.” |
-| Style 2 | Concise tutor-style prompt | “Guided diffusion is a technique used to condition and guide a generative diffusion model given a text input. It uses text conditioning to steer the model toward generating images that align with the input description.” |
-| Style 3 | Step-by-step reasoning prompt | “1. Guided diffusion is a technique used in machine learning to condition and guide a generative diffusion model given a text input. 2. It uses attention mechanisms to focus on relevant parts of the input text. 3. This allows the model to generate images that align with the given description.” |
+| Style 1 | Basic instruction | Guided diffusion is a technique used to condition and guide a generative diffusion model given a text input. It involves using cross-attention to condition the model on the text input and guide it towards generating images that are similar to the input text. |
+| Style 2 | Concise tutor-style prompt | Guided diffusion is a technique used to condition and guide a generative diffusion model given a text input. It uses text conditioning to steer the model toward generating images that align with the input description. |
+| Style 3 | Step-by-step reasoning prompt | 1. Guided diffusion is a technique used in machine learning to condition and guide a generative diffusion model given a text input. 2. It uses attention mechanisms to focus on relevant parts of the input text. 3. This allows the model to generate images that align with the given description. |
 
 ### Observations
 
