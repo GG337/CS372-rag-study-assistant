@@ -16,9 +16,9 @@ python -m pip install -r requirements.txt
 
 ## Video Links
 
-- Demo: [PASTE DEMO VIDEO LINK HERE]
+- Demo: https://github.com/user-attachments/assets/cafc3472-9ea1-415f-9812-11c2ae420e89
 - Technical Walkthrough: [PASTE TECHNICAL VIDEO LINK HERE]
-
+  
 ---
 
 ## Evaluation
